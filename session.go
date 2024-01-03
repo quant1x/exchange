@@ -12,6 +12,10 @@ type TradingSession struct {
 	sessions []TimeRange
 }
 
+func ExchangeSessions(sessions ...TimeRange) TradingSession {
+	return TradingSession{sessions: sessions}
+}
+
 func (this TradingSession) String() string {
 	builder := strings.Builder{}
 	builder.WriteByte('[')
@@ -34,6 +38,14 @@ func (this TradingSession) v2String() string {
 	builder.WriteString(strings.Join(arr, ","))
 	//builder.WriteByte(']')
 	return builder.String()
+}
+
+func (this TradingSession) Minutes() int {
+	minutes := 0
+	for _, v := range this.sessions {
+		minutes += v.Minutes()
+	}
+	return minutes
 }
 
 func (this *TradingSession) Parse(text string) error {

@@ -5,7 +5,6 @@ import (
 	"gitee.com/quant1x/pandas/stat"
 	"regexp"
 	"strings"
-	_ "unsafe"
 )
 
 // 正则表达式

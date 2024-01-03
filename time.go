@@ -20,6 +20,20 @@ var (
 	formatOfTimestamp = time.TimeOnly
 )
 
+// TimeKind 时段类型
+type TimeKind uint64
+
+const (
+	CallAuction TimeKind = 1 << iota // 集合竞价
+	CanCancel                        // 可撤单
+	Trading                          // 交易时段
+)
+
+const (
+	CallAuctionAndCancel TimeKind = CallAuction | CanCancel // 集合竞价可撤单
+	TradingAndCancel     TimeKind = Trading | CanCancel     // 交易可撤单
+)
+
 func getTradingTimestamp() string {
 	now := time.Now()
 	return now.Format(formatOfTimestamp)
@@ -27,8 +41,44 @@ func getTradingTimestamp() string {
 
 // TimeRange 时间范围
 type TimeRange struct {
-	begin string // 开始时间
-	end   string // 结束时间
+	kind    TimeKind // 时间类型
+	begin   string   // 开始时间
+	end     string   // 结束时间
+	tmBegin int64    // 开始的秒数
+	tmEnd   int64    // 结束的秒数
+}
+
+func ExchangeTime(kind TimeKind, begin, end string) TimeRange {
+	tmBegin, err := time.Parse(time.TimeOnly, begin)
+	if err != nil {
+		panic(err)
+	}
+	tmEnd, err := time.Parse(time.TimeOnly, end)
+	if err != nil {
+		panic(err)
+	}
+	tr := TimeRange{
+		kind:    kind,
+		begin:   begin,
+		end:     end,
+		tmBegin: tmBegin.Unix(),
+		tmEnd:   tmEnd.Unix(),
+	}
+	if tr.begin > tr.end {
+		tr.begin, tr.end = tr.end, tr.begin
+		tr.tmBegin, tr.tmEnd = tr.tmEnd, tr.tmBegin
+	}
+	return tr
+}
+
+func (this TimeRange) Minutes() int {
+	seconds := this.tmEnd - this.tmBegin
+	minutes := seconds / 60
+	remaining := seconds % 60
+	if remaining > 0 {
+		minutes++
+	}
+	return int(minutes)
 }
 
 func (this TimeRange) String() string {
