@@ -5,8 +5,10 @@ import (
 	"gitee.com/quant1x/gox/exception"
 	"gitee.com/quant1x/pkg/yaml"
 	"regexp"
+	_ "runtime"
 	"strings"
 	"time"
+	_ "unsafe"
 )
 
 // 值范围正则表达式
@@ -33,6 +35,34 @@ const (
 	CallAuctionAndCancel TimeKind = CallAuction | CanCancel // 集合竞价可撤单
 	TradingAndCancel     TimeKind = Trading | CanCancel     // 交易可撤单
 )
+
+const (
+	secondsPerMinute      = 60
+	secondsPerHour        = 60 * secondsPerMinute
+	secondsPerDay         = 24 * secondsPerHour
+	milliSecondsPerSecond = 1000
+)
+
+//go:linkname walltime runtime.walltime
+func walltime() (int64, int32)
+
+// 调用公开结构的私有方法
+//
+//go:linkname abstime time.Time.abs
+func abstime(t time.Time) uint64
+
+var (
+	// 获取偏移的秒数
+	zoneName, offsetInSecondsEastOfUTC = time.Now().Zone()
+)
+
+// 获取当前的时间戳, 毫秒数
+func timestamp() int64 {
+	sec, nsec := walltime()
+	sec += int64(offsetInSecondsEastOfUTC)
+	milli := sec*milliSecondsPerSecond + int64(nsec)/1e6%milliSecondsPerSecond
+	return milli
+}
 
 func getTradingTimestamp() string {
 	now := time.Now()
@@ -110,6 +140,7 @@ func (this *TimeRange) Parse(text string) error {
 //
 //	由于begin和end字段不可访问, 默认值调用实际无效
 func (this *TimeRange) UnmarshalText(text []byte) error {
+	_ = text
 	//TODO implement me
 	panic("implement me")
 }
