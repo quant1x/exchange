@@ -28,11 +28,11 @@ var (
 // 加载配置文件
 func lazyLoadExchanges() {
 	cn := ExchangeSessions(
-		ExchangeTime(CallAuctionAndCancel, "09:15:00", "09:20:00"),
-		ExchangeTime(CallAuction, "09:20:00", "09:25:00"),
-		ExchangeTime(TradingAndCancel, "09:30:00", "11:30:00"),
-		ExchangeTime(TradingAndCancel, "13:00:00", "14:57:00"),
-		ExchangeTime(CallAuction, "14:57:00", "15:00:00"),
+		ExchangeTime(CallAuctionAndCancel, "09:15:00", "09:20:00"), // 竞价, 可撤单
+		ExchangeTime(CallAuction, "09:20:00", "09:25:00"),          // 竞价, 不可撤单
+		ExchangeTime(TradingAndCancel, "09:30:00", "11:30:00"),     // 交易, 可撤单
+		ExchangeTime(TradingAndCancel, "13:00:00", "14:57:00"),     // 交易, 可撤单
+		ExchangeTime(CallAuction|Trading, "14:57:00", "15:00:00"),  // 竞价, 交易, 不可撤单
 	)
 	mapExchange[CN] = cn
 }

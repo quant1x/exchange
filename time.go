@@ -72,6 +72,9 @@ func ExchangeTime(kind TimeKind, begin, end string) TimeRange {
 }
 
 func (this TimeRange) Minutes() int {
+	if (this.kind & Trading) == 0 {
+		return 0
+	}
 	seconds := this.tmEnd - this.tmBegin
 	minutes := seconds / 60
 	remaining := seconds % 60
