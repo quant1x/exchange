@@ -10,7 +10,7 @@ import (
 func TestTimeRange(t *testing.T) {
 	text := " 09:30:00 ~ 14:56:30 "
 	text = " 14:56:30 - 09:30:00 "
-	var tr TimeRange
+	var tr TimeInterval
 	tr.Parse(text)
 	fmt.Println(tr)
 	text = "09:15:00~09:26:59,09:15:00~09:19:59,09:25:00~11:29:59,13:00:00~14:59:59,09:00:00~09:14:59"
@@ -21,8 +21,8 @@ func TestTimeRange(t *testing.T) {
 }
 
 type tt struct {
-	Session    TimeRange `yaml:"session"`
-	ChangeRate float64   `yaml:"change_rate" default:"0.01"`
+	Session    TimeInterval `yaml:"session"`
+	ChangeRate float64      `yaml:"change_rate" default:"0.01"`
 }
 
 func TestTimeRangeWithParse(t *testing.T) {
