@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.3] - 2024-01-11
+### Changed
+- 调整包路径.
+- 从gotdx拆分和协议无关的代码.
+- 更新依赖库版本.
+
 ## [0.1.2] - 2024-01-09
 ### Changed
 - 优化时段的判断.
@@ -19,7 +25,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.2...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.3...HEAD
+[0.1.3]: https://gitee.com/quant1x/exchange/compare/v0.1.2...v0.1.3
 [0.1.2]: https://gitee.com/quant1x/exchange/compare/v0.1.1...v0.1.2
 [0.1.1]: https://gitee.com/quant1x/exchange/compare/v0.1.0...v0.1.1
 [0.1.0]: https://gitee.com/quant1x/exchange/releases/tag/v0.1.0
