@@ -2,13 +2,13 @@ package exchange
 
 import "sync"
 
-const (
-	MarketShangHai string = "sh" // 上海
-	MarketShenZhen string = "sz" // 深圳
-	MarketBeiJing  string = "bj" // 北京
-	MarketHongKong string = "hk" // 香港
-	MarketUSA      string = "us" // 美国
-)
+//const (
+//	MarketShangHai string = "sh" // 上海
+//	MarketShenZhen string = "sz" // 深圳
+//	MarketBeiJing  string = "bj" // 北京
+//	MarketHongKong string = "hk" // 香港
+//	MarketUSA      string = "us" // 美国
+//)
 
 const (
 	CN = "cn" // A股
