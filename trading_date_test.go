@@ -1,4 +1,4 @@
-package trading
+package exchange
 
 import (
 	"fmt"
@@ -37,7 +37,7 @@ func TestGetCurrentDate(t *testing.T) {
 	fmt.Println(v)
 }
 
-func TestTimeRange(t *testing.T) {
+func TestDateTimeRange(t *testing.T) {
 	getTimeRanges()
 	tr := DateTimeRange{Begin: trAMBegin, End: trAMEnd}
 	fmt.Println(tr.Minutes())

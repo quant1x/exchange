@@ -1,4 +1,4 @@
-package trading
+package exchange
 
 import (
 	"gitee.com/quant1x/gox/api"
@@ -10,13 +10,8 @@ import (
 )
 
 const (
-	MARKET_CN_FIRST_DATE     = "19901219"   // 上证指数的第一个交易日
-	MARKET_CH_FIRST_LISTTIME = "1990-12-19" // 个股上市日期
-)
-
-const (
-	kIndexDate = "2006-01-02"  // 索引日期格式
-	TimeOnly   = time.TimeOnly // 时分秒的格式
+	indexDate = "2006-01-02"  // 索引日期格式
+	TimeOnly  = time.TimeOnly // 时分秒的格式
 )
 
 // IsHoliday 是否节假日
@@ -54,7 +49,7 @@ func Today() string {
 // IndexToday 当天
 func IndexToday() string {
 	now := time.Now()
-	return now.Format(kIndexDate)
+	return now.Format(indexDate)
 }
 
 // TradeRange 输出交易日范围

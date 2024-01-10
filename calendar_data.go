@@ -1,4 +1,4 @@
-package trading
+package exchange
 
 import (
 	"gitee.com/quant1x/exchange/internal/js"

@@ -1,9 +1,8 @@
 // Package trading 包含交易中的日历和时段相关的功能函数
-package trading
+package exchange
 
 import (
 	"gitee.com/quant1x/exchange/cache"
-	"gitee.com/quant1x/exchange/internal/dfcf"
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/coroutine"
 	"gitee.com/quant1x/gox/logger"
@@ -214,7 +213,7 @@ func checkCalendar() (noDates []string, err error) {
 // 获取上证指数的交易日期, 目的是校验日期
 func getShangHaiTradeDates() (dates []string) {
 	securityCode := "sh000001"
-	klines, err := dfcf.A(securityCode)
+	klines, err := A(securityCode)
 	if err != nil {
 		return
 	}
