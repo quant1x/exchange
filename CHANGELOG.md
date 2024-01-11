@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.4] - 2024-01-12
+### Changed
+- 新增一个交易日范围的函数.
+
 ## [0.1.3] - 2024-01-11
 ### Changed
 - 调整包路径.
@@ -25,7 +29,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.3...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.4...HEAD
+[0.1.4]: https://gitee.com/quant1x/exchange/compare/v0.1.3...v0.1.4
 [0.1.3]: https://gitee.com/quant1x/exchange/compare/v0.1.2...v0.1.3
 [0.1.2]: https://gitee.com/quant1x/exchange/compare/v0.1.1...v0.1.2
 [0.1.1]: https://gitee.com/quant1x/exchange/compare/v0.1.0...v0.1.1
