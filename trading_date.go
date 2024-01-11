@@ -55,7 +55,38 @@ func IndexToday() string {
 // TradeRange 输出交易日范围
 //
 //	默认是线程安全
+//
+// Deprecated: 推荐使用 TradingDateRange
 func TradeRange(start, end string, threadSafe ...bool) []string {
+	isSafe := true
+	if len(threadSafe) > 0 {
+		isSafe = threadSafe[0]
+	}
+	var tradeDates []string
+	if isSafe {
+		tradeDates = readOnlyDates()
+	} else {
+		tradeDates = unsafeDates()
+	}
+
+	start = FixTradeDate(start)
+	end = FixTradeDate(end)
+
+	is := sort.SearchStrings(tradeDates, start)
+	ie := sort.SearchStrings(tradeDates, end)
+
+	today := IndexToday()
+	lastDay := tradeDates[ie]
+	if lastDay > today || lastDay > end {
+		ie = ie - 1
+	}
+	return slices.Clone(tradeDates[is : ie+1])
+}
+
+// TradingDateRange 输出交易日范围
+//
+//	默认是线程安全
+func TradingDateRange(start, end string, threadSafe ...bool) []string {
 	isSafe := true
 	if len(threadSafe) > 0 {
 		isSafe = threadSafe[0]
