@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.5] - 2024-01-12
+### Changed
+- 合并exchange和market.
+
 ## [0.1.4] - 2024-01-12
 ### Changed
 - 新增一个交易日范围的函数.
@@ -29,7 +33,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.4...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.5...HEAD
+[0.1.5]: https://gitee.com/quant1x/exchange/compare/v0.1.4...v0.1.5
 [0.1.4]: https://gitee.com/quant1x/exchange/compare/v0.1.3...v0.1.4
 [0.1.3]: https://gitee.com/quant1x/exchange/compare/v0.1.2...v0.1.3
 [0.1.2]: https://gitee.com/quant1x/exchange/compare/v0.1.1...v0.1.2
