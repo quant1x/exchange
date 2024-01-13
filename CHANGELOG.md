@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.7] - 2024-01-13
+### Changed
+- 更新依赖库版本号.
+
 ## [0.1.6] - 2024-01-13
 ### Changed
 - 修复结束日期早于开始日期的异常.
@@ -38,7 +42,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.6...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.7...HEAD
+[0.1.7]: https://gitee.com/quant1x/exchange/compare/v0.1.6...v0.1.7
 [0.1.6]: https://gitee.com/quant1x/exchange/compare/v0.1.5...v0.1.6
 [0.1.5]: https://gitee.com/quant1x/exchange/compare/v0.1.4...v0.1.5
 [0.1.4]: https://gitee.com/quant1x/exchange/compare/v0.1.3...v0.1.4
