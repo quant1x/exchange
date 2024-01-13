@@ -80,6 +80,9 @@ func TradeRange(start, end string, threadSafe ...bool) []string {
 	if lastDay > today || lastDay > end {
 		ie = ie - 1
 	}
+	if is > ie+1 {
+		return nil
+	}
 	return slices.Clone(tradeDates[is : ie+1])
 }
 
@@ -108,6 +111,9 @@ func TradingDateRange(start, end string, threadSafe ...bool) []string {
 	lastDay := tradeDates[ie]
 	if lastDay > today || lastDay > end {
 		ie = ie - 1
+	}
+	if is > ie+1 {
+		return nil
 	}
 	return slices.Clone(tradeDates[is : ie+1])
 }
