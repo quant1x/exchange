@@ -3,9 +3,9 @@ module gitee.com/quant1x/exchange
 go 1.21.5
 
 require (
-	gitee.com/quant1x/gox v1.17.1
-	gitee.com/quant1x/pandas v1.2.7
-	gitee.com/quant1x/pkg v0.2.5
+	gitee.com/quant1x/gox v1.17.2
+	gitee.com/quant1x/pandas v1.2.8
+	gitee.com/quant1x/pkg v0.2.6
 )
 
 require (
