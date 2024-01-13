@@ -90,6 +90,12 @@ func TradeRange(start, end string, threadSafe ...bool) []string {
 //
 //	默认是线程安全
 func TradingDateRange(start, end string, threadSafe ...bool) []string {
+	start = FixTradeDate(start)
+	end = FixTradeDate(end)
+	if start > end {
+		return nil
+	}
+
 	isSafe := true
 	if len(threadSafe) > 0 {
 		isSafe = threadSafe[0]
@@ -100,9 +106,6 @@ func TradingDateRange(start, end string, threadSafe ...bool) []string {
 	} else {
 		tradeDates = unsafeDates()
 	}
-
-	start = FixTradeDate(start)
-	end = FixTradeDate(end)
 
 	is := sort.SearchStrings(tradeDates, start)
 	ie := sort.SearchStrings(tradeDates, end)
