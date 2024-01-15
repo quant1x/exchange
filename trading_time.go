@@ -393,7 +393,13 @@ func CheckCallAuctionTail(timestamp time.Time) (finished bool) {
 
 // TradeSessionHasEnd 是否收盘
 func TradeSessionHasEnd(date string) bool {
-	tm, _ := time.Parse(indexDate, date)
-	_, status := CanUpdateInRealtime(tm)
+	tradeDate := FixTradeDate(date)
+	now := time.Now()
+	today := now.Format(TradingDayDateFormat)
+	if tradeDate < today {
+		// 今天之前都是收盘
+		return true
+	}
+	_, status := CanUpdateInRealtime(now)
 	return status == ExchangeClosing
 }

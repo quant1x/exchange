@@ -32,3 +32,37 @@ func TestCanUpdate(t *testing.T) {
 	lastModified := time.Now()
 	fmt.Println(CanUpdate(lastModified))
 }
+
+func TestTradeSessionHasEnd(t *testing.T) {
+	type args struct {
+		date string
+	}
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			name: "today-1",
+			args: args{date: "20240112"},
+			want: true,
+		},
+		{
+			name: "today-1-1",
+			args: args{date: "20240112"},
+			want: true,
+		},
+		{
+			name: "today",
+			args: args{date: "20240115"},
+			want: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := TradeSessionHasEnd(tt.args.date); got != tt.want {
+				t.Errorf("TradeSessionHasEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
