@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2024-01-15
+### Changed
+- 新增是否收盘的函数.
+- 新增是否收盘的函数.
+
 ## [0.1.9] - 2024-01-14
 ### Changed
 - 增加校验交易日期范围, 开始日期不能晚于结束日期.
@@ -50,7 +55,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.1.9...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.2.0...HEAD
+[0.2.0]: https://gitee.com/quant1x/exchange/compare/v0.1.9...v0.2.0
 [0.1.9]: https://gitee.com/quant1x/exchange/compare/v0.1.8...v0.1.9
 [0.1.8]: https://gitee.com/quant1x/exchange/compare/v0.1.7...v0.1.8
 [0.1.7]: https://gitee.com/quant1x/exchange/compare/v0.1.6...v0.1.7
