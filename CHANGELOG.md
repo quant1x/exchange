@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.2] - 2024-01-18
+### Changed
+- 新增Touch函数.
+
 ## [0.2.1] - 2024-01-17
 ### Changed
 - 新增泛型的sync.Map和sync.Pool.
@@ -59,7 +63,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.2.1...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.2.2...HEAD
+[0.2.2]: https://gitee.com/quant1x/exchange/compare/v0.2.1...v0.2.2
 [0.2.1]: https://gitee.com/quant1x/exchange/compare/v0.2.0...v0.2.1
 [0.2.0]: https://gitee.com/quant1x/exchange/compare/v0.1.9...v0.2.0
 [0.1.9]: https://gitee.com/quant1x/exchange/compare/v0.1.8...v0.1.9
