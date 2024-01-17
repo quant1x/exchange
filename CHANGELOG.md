@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.1] - 2024-01-17
+### Changed
+- 新增泛型的sync.Map和sync.Pool.
+
 ## [0.2.0] - 2024-01-15
 ### Changed
 - 新增是否收盘的函数.
@@ -55,7 +59,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.2.0...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.2.1...HEAD
+[0.2.1]: https://gitee.com/quant1x/exchange/compare/v0.2.0...v0.2.1
 [0.2.0]: https://gitee.com/quant1x/exchange/compare/v0.1.9...v0.2.0
 [0.1.9]: https://gitee.com/quant1x/exchange/compare/v0.1.8...v0.1.9
 [0.1.8]: https://gitee.com/quant1x/exchange/compare/v0.1.7...v0.1.8
