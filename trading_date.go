@@ -24,6 +24,17 @@ func IsHoliday(date string) bool {
 	return !found
 }
 
+// ToUint32Date 通达信协议日期为YYYYMMDD格式的十进制整型
+func ToUint32Date(datetime string) uint32 {
+	t, err := api.ParseTime(datetime)
+	if err != nil {
+		logger.Errorf("datetime: %s", datetime)
+		panic(err)
+	}
+	y, m, d := t.Date()
+	return uint32(y*10000 + int(m)*100 + d)
+}
+
 // FixTradeDate 强制修正交易日字符串
 //
 //	默认格式 YYYY-MM-DD, 支持其它格式

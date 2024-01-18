@@ -42,3 +42,42 @@ func TestDateTimeRange(t *testing.T) {
 	tr := DateTimeRange{Begin: trAMBegin, End: trAMEnd}
 	fmt.Println(tr.Minutes())
 }
+
+func TestToU32Date(t *testing.T) {
+	type args struct {
+		datetime string
+	}
+	tests := []struct {
+		name string
+		args args
+		want uint32
+	}{
+		{
+			name: "1970-01-01",
+			args: args{datetime: "1970-01-01"},
+			want: 19700101,
+		},
+		{
+			name: "20231001",
+			args: args{datetime: "20231001"},
+			want: 20231001,
+		},
+		{
+			name: "2023-10-01",
+			args: args{datetime: "2023-10-01"},
+			want: 20231001,
+		},
+		{
+			name: "2023-10-01 09:10:11",
+			args: args{datetime: "2023-10-01 09:10:11"},
+			want: 20231001,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToUint32Date(tt.args.datetime); got != tt.want {
+				t.Errorf("ToUint32Date() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
