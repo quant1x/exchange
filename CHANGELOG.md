@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.6] - 2024-01-22
+### Changed
+- 更新gox版本, 完善RollingOnce.
+- 更新gox版本.
+
 ## [0.2.5] - 2024-01-19
 ### Changed
 - 修订涨停价格函数名拼写错误的bug.
@@ -76,7 +81,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.2.5...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.2.6...HEAD
+[0.2.6]: https://gitee.com/quant1x/exchange/compare/v0.2.5...v0.2.6
 [0.2.5]: https://gitee.com/quant1x/exchange/compare/v0.2.4...v0.2.5
 [0.2.4]: https://gitee.com/quant1x/exchange/compare/v0.2.3...v0.2.4
 [0.2.3]: https://gitee.com/quant1x/exchange/compare/v0.2.2...v0.2.3
