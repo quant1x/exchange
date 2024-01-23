@@ -1,6 +1,7 @@
 package js
 
 import (
+	"gitee.com/quant1x/gox/logger"
 	//js "github.com/dop251/goja"
 	js "gitee.com/quant1x/pkg/goja"
 	"strings"
@@ -305,7 +306,7 @@ var (
 func init() {
 	_, err := vm.RunString(funcSinaHkJsDecode)
 	if err != nil {
-		panic(err)
+		logger.Fatalf("%+v", err)
 	}
 	jsFuncD = vm.Get("d")
 }
@@ -318,7 +319,7 @@ func init() {
 func SinaJsDecodeByAssertFunction(text string) (interface{}, error) {
 	jsDecode, ok := js.AssertFunction(jsFuncD)
 	if !ok {
-		panic("Not a function")
+		logger.Fatal("not a function")
 	}
 	tmp := strings.Split(text, "=")
 	if len(tmp) > 1 {

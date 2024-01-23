@@ -29,7 +29,7 @@ func ToUint32Date(datetime string) uint32 {
 	t, err := api.ParseTime(datetime)
 	if err != nil {
 		logger.Errorf("datetime: %s", datetime)
-		panic(err)
+		logger.Fatalf("%+v", err)
 	}
 	y, m, d := t.Date()
 	return uint32(y*10000 + int(m)*100 + d)
@@ -42,7 +42,7 @@ func FixTradeDate(datetime string, format ...string) string {
 	dt, err := api.ParseTime(datetime)
 	if err != nil {
 		logger.Errorf("datetime: %s", datetime)
-		panic(err)
+		logger.Fatalf("%+v", err)
 	}
 	defaultDateFormat := TradingDayDateFormat
 	if len(format) > 0 {

@@ -3,6 +3,7 @@ package exchange
 import (
 	"fmt"
 	"gitee.com/quant1x/gox/exception"
+	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/gox/timestamp"
 	"gitee.com/quant1x/pkg/yaml"
 	"regexp"
@@ -49,11 +50,11 @@ type TimeInterval struct {
 func ExchangeTime(kind TimeKind, begin, end string) TimeInterval {
 	tmBegin, err := time.ParseInLocation(time.TimeOnly, begin, time.Local)
 	if err != nil {
-		panic(err)
+		logger.Fatalf("%+v", err)
 	}
 	tmEnd, err := time.ParseInLocation(time.TimeOnly, end, time.Local)
 	if err != nil {
-		panic(err)
+		logger.Fatalf("%+v", err)
 	}
 	tr := TimeInterval{
 		kind:    kind,
@@ -110,7 +111,6 @@ func (this *TimeInterval) Parse(text string) error {
 //	由于begin和end字段不可访问, 默认值调用实际无效
 func (this *TimeInterval) UnmarshalText(text []byte) error {
 	_ = text
-	//TODO implement me
 	panic("implement me")
 }
 

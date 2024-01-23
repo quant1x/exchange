@@ -123,7 +123,7 @@ func updateCalendar(noDates ...string) (bUpdate bool) {
 	if !api.FileExist(calendarFilename) {
 		err := api.CheckFilepath(calendarFilename, true)
 		if err != nil {
-			panic("文件路径创建失败: " + calendarFilename)
+			logger.Fatal("文件路径创建失败: " + calendarFilename)
 		}
 		bUpdate = true
 	} else {

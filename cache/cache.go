@@ -1,6 +1,7 @@
 package cache
 
 import (
+	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/gox/util/homedir"
 	"sync"
 )
@@ -14,7 +15,7 @@ var (
 func initPath(path string) {
 	finalPath, err := homedir.Expand(path)
 	if err != nil {
-		panic(err)
+		logger.Fatalf("%+v", err)
 	}
 	__once_temporary_path = path
 	__global_cache_path = finalPath

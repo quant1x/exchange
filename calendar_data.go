@@ -4,6 +4,7 @@ import (
 	"gitee.com/quant1x/exchange/internal/js"
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/http"
+	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/pkg/gocsv"
 	"strings"
 	"time"
@@ -26,7 +27,7 @@ func v2downloadCalendar(fileModTime time.Time) ([]calendar, time.Time) {
 	}
 	data, lastModified, err := http.Request(urlSinaRealstockCompanyKlcTdSh, http.MethodGet, "", header)
 	if err != nil {
-		panic("获取交易日历失败: " + urlSinaRealstockCompanyKlcTdSh)
+		logger.Fatal("获取交易日历失败: " + urlSinaRealstockCompanyKlcTdSh)
 	}
 	if len(data) == 0 {
 		return nil, lastModified
@@ -34,7 +35,7 @@ func v2downloadCalendar(fileModTime time.Time) ([]calendar, time.Time) {
 
 	ret, err := js.SinaJsDecode(api.Bytes2String(data))
 	if err != nil {
-		panic("js解码失败: " + urlSinaRealstockCompanyKlcTdSh)
+		logger.Fatal("js解码失败: " + urlSinaRealstockCompanyKlcTdSh)
 	}
 	var dates []calendar
 	for _, v := range ret.([]any) {
