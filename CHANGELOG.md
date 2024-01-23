@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.1] - 2024-01-23
+### Changed
+- 更新依赖库版本.
+
 ## [0.3.0] - 2024-01-23
 ### Changed
 - 强化panic日志.
@@ -98,7 +102,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.3.0...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.3.1...HEAD
+[0.3.1]: https://gitee.com/quant1x/exchange/compare/v0.3.0...v0.3.1
 [0.3.0]: https://gitee.com/quant1x/exchange/compare/v0.2.9...v0.3.0
 [0.2.9]: https://gitee.com/quant1x/exchange/compare/v0.2.8...v0.2.9
 [0.2.8]: https://gitee.com/quant1x/exchange/compare/v0.2.7...v0.2.8
