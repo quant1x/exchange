@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.7] - 2024-01-27
+### Changed
+- 更新依赖库版本.
+
 ## [0.3.6] - 2024-01-25
 ### Changed
 - 更新依赖库版本.
@@ -122,7 +126,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.3.6...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.3.7...HEAD
+[0.3.7]: https://gitee.com/quant1x/exchange/compare/v0.3.6...v0.3.7
 [0.3.6]: https://gitee.com/quant1x/exchange/compare/v0.3.5...v0.3.6
 [0.3.5]: https://gitee.com/quant1x/exchange/compare/v0.3.4...v0.3.5
 [0.3.4]: https://gitee.com/quant1x/exchange/compare/v0.3.3...v0.3.4
