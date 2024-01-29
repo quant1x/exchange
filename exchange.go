@@ -7,6 +7,13 @@ import (
 	"sync"
 )
 
+// Operator 操作员接口
+type Operator interface {
+	// Kind 取得ms所在时段的操作类别和序号
+	//	ms是nil的话, 即默认值, 取当前时间戳的毫秒数
+	Kind(ms ...int64) (kind TimeKind, index int)
+}
+
 //const (
 //	MarketShangHai string = "sh" // 上海
 //	MarketShenZhen string = "sz" // 深圳
