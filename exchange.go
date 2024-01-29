@@ -14,6 +14,12 @@ type Operator interface {
 	Kind(ms ...int64) (kind TimeKind, index int)
 }
 
+// GetOperator 获取一个Operator实例
+func GetOperator() Operator {
+	//TODO implement me
+	panic("implement me")
+}
+
 //const (
 //	MarketShangHai string = "sh" // 上海
 //	MarketShenZhen string = "sz" // 深圳
