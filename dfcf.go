@@ -17,13 +17,13 @@ const (
 
 var (
 	// 复权
-	adjust_dict = map[string]string{
+	adjustDict = map[string]string{
 		"qfq": "1",
 		"hfq": "2",
 		"nil": "0",
 	}
 	// 周期
-	period_dict = map[string]string{
+	periodDict = map[string]string{
 		"daily":   "101",
 		"weekly":  "102",
 		"monthly": "103",
@@ -66,8 +66,8 @@ func stock_hist(marketId int, symbol string, args ...string) ([]byte, error) {
 		"fields1": {"f1,f2,f3,f4,f5,f6"},
 		"fields2": {"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61,f116"},
 		"ut":      {"7eea3edcaed734bea9cbfc24409ed989"},
-		"klt":     {period_dict[period]},
-		"fqt":     {adjust_dict[adjust]},
+		"klt":     {periodDict[period]},
+		"fqt":     {adjustDict[adjust]},
 		"secid":   {fmt.Sprintf("%d.%s", marketId, symbol)},
 		"beg":     {start_date},
 		"end":     {end_date},
