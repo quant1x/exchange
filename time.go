@@ -32,8 +32,10 @@ const (
 )
 
 const (
-	CallAuctionAndCancel TimeKind = CallAuction | CanCancel // 集合竞价可撤单
-	TradingAndCancel     TimeKind = Trading | CanCancel     // 交易可撤单
+	CallAuctionAndCancel  TimeKind = CallAuction | CanCancel // 集合竞价可撤单
+	TradingAndCancel      TimeKind = Trading | CanCancel     // 交易可撤单
+	CallAuctionAndTrading TimeKind = CallAuction | Trading   // 集合竞价可撤单
+
 )
 
 // TimeInterval 时间范围

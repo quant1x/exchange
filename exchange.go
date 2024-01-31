@@ -5,6 +5,7 @@ import (
 	"gitee.com/quant1x/gox/num"
 	"strings"
 	"sync"
+	"time"
 )
 
 // Operator 操作员接口
@@ -14,10 +15,32 @@ type Operator interface {
 	Kind(ms ...int64) (kind TimeKind, index int)
 }
 
+var onceMarketHoursOperator sync.Once
+var mapExchangeMarketHours = map[string]MarketHours{}
+
+type MarketHoursOperator struct {
+}
+
+var marketHoursOperator = MarketHoursOperator{}
+
+// Kind 实现了Operator接口的Kind方法
+func (o MarketHoursOperator) Kind(ms ...int64) (kind TimeKind, index int) {
+	var timestamp int64
+	if len(ms) > 0 {
+		timestamp = ms[0]
+	} else {
+		timestamp = time.Now().UnixNano() / int64(time.Millisecond)
+	}
+
+	marketHours := mapExchangeMarketHours[CN]
+	kind, index, _ = marketHours.GetTimeKind(timestamp)
+
+	return kind, index
+}
+
 // GetOperator 获取一个Operator实例
 func GetOperator() Operator {
-	//TODO implement me
-	panic("implement me")
+	return marketHoursOperator
 }
 
 //const (
@@ -42,6 +65,19 @@ var (
 	onceExchange sync.Once
 	mapExchange  = map[string]TradingSession{}
 )
+
+func lazyLoadExchangeMarketHours() {
+	text := "CAAC|09:15:00-09:20:00, CA|09:20:00-09:25:00, TAC|09:30:00-11:30:00, TAC|13:00:00-14:57:00, CAAT|14:57:00-15:00:00"
+	var marketHours MarketHours
+	marketHours.Parse(text)
+
+	mapExchangeMarketHours[CN] = marketHours
+}
+
+func GetExchangeMarketHours(name string) MarketHours {
+	onceMarketHoursOperator.Do(lazyLoadExchangeMarketHours)
+	return mapExchangeMarketHours[name]
+}
 
 // 加载配置文件
 func lazyLoadExchanges() {

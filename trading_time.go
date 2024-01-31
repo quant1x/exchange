@@ -12,6 +12,7 @@ const (
 	CN_TransactionTimeFormat   = "15:04"        // 分笔成交时间格式
 	CN_SERVERTIME_FORMAT       = "15:04:05.000" // 服务器时间格式
 	CN_SERVERTIME_SHORT_FORMAT = "15:04:05"     // 服务器时间格式
+	TimeStampSecond            = "2006-01-02 15:04:05"
 	TimeStampMilli             = "2006-01-02 15:04:05.000"
 	TimeStampMicro             = "2006-01-02 15:04:05.000000"
 	TimeStampNano              = "2006-01-02 15:04:05.000000000"

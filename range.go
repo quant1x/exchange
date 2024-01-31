@@ -17,6 +17,9 @@ var (
 	// 数组正则表达式
 	arrayPattern = "[,]\\s*"
 	arrayRegexp  = regexp.MustCompile(arrayPattern)
+
+	tradingTimeRangePattern       = "([A-Z]{1,4}\\|)?(\\d{2}:\\d{2}:\\d{2})[-~](\\d{2}:\\d{2}:\\d{2})"
+	tradingTimeRangePatternRegexp = regexp.MustCompile(tradingTimeRangePattern)
 )
 
 // 错误信息
