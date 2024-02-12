@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.8] - 2024-02-12
+### Changed
+- 更新依赖库版本.
+- 从engine迁移成交数据相关时间常量.
+- 更新依赖库版本.
+- !4 添加根据timestamp获取TimeKind的函数 * 添加根据timestamp获取TimeKind的函数.
+- 定义一个未实现的获取Operator接口实例的函数.
+- 新增操作接口.
+- 调整变量名.
+
 ## [0.3.7] - 2024-01-27
 ### Changed
 - 更新依赖库版本.
@@ -126,7 +136,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.3.7...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.3.8...HEAD
+[0.3.8]: https://gitee.com/quant1x/exchange/compare/v0.3.7...v0.3.8
 [0.3.7]: https://gitee.com/quant1x/exchange/compare/v0.3.6...v0.3.7
 [0.3.6]: https://gitee.com/quant1x/exchange/compare/v0.3.5...v0.3.6
 [0.3.5]: https://gitee.com/quant1x/exchange/compare/v0.3.4...v0.3.5
