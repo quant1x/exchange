@@ -3,8 +3,8 @@ module gitee.com/quant1x/exchange
 go 1.21.5
 
 require (
-	gitee.com/quant1x/gox v1.19.9
-	gitee.com/quant1x/num v0.0.8
+	gitee.com/quant1x/gox v1.20.1
+	gitee.com/quant1x/num v0.0.9
 	gitee.com/quant1x/pkg v0.2.6
 )
 
