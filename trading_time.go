@@ -32,7 +32,7 @@ const (
 	CN_CallAuctionTailEnd      = "15:01:59.999" // 尾盘时段-结束
 	CN_CallAuctionPmBegin      = "14:57:00.000" // 集合竞价-尾盘-开始时间
 	CN_CallAuctionPmEnd        = "15:01:59.999" // 集合竞价-尾盘-结束时间
-	CN_CallAuctionPmFinished   = "15:01:00.000" // 集合竞价-尾盘-数据结束时间
+	CN_CallAuctionPmFinished   = "15:01:30.000" // 集合竞价-尾盘-数据结束时间
 )
 
 // 集合竞价时间相关常量
