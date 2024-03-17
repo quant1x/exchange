@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.5] - 2024-03-18
+### Changed
+- 调整尾盘集合竞价数据的结束时间,给快照留30s的更新收盘数据的时间buffer.
+
 ## [0.4.4] - 2024-03-17
 ### Changed
 - 更新依赖库版本.
@@ -161,7 +165,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.4.4...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.4.5...HEAD
+[0.4.5]: https://gitee.com/quant1x/exchange/compare/v0.4.4...v0.4.5
 [0.4.4]: https://gitee.com/quant1x/exchange/compare/v0.4.3...v0.4.4
 [0.4.3]: https://gitee.com/quant1x/exchange/compare/v0.4.2...v0.4.3
 [0.4.2]: https://gitee.com/quant1x/exchange/compare/v0.4.1...v0.4.2
