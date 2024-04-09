@@ -97,13 +97,13 @@ func TradeRange(start, end string, threadSafe ...bool) []string {
 	return slices.Clone(tradeDates[is : ie+1])
 }
 
-// DateRange 在start和end之间的所有交易日
+// transactionDateRange 在start和end之间的所有交易日
 //
 //	start 开始日期
 //	end 结束日期
 //	threadSafe 是否线程安全
 //	skipToday 是否跳过当日
-func DateRange(start, end string, threadSafe, skipToday bool) []string {
+func transactionDateRange(start, end string, threadSafe, skipToday bool) []string {
 	start = FixTradeDate(start)
 	end = FixTradeDate(end)
 	if start > end {
@@ -133,16 +133,24 @@ func DateRange(start, end string, threadSafe, skipToday bool) []string {
 	return slices.Clone(tradeDates[is : ie+1])
 }
 
+// DateRange 在start和end闭区间的所有交易日
+//
+//	start 开始日期
+//	end 结束日期
+func DateRange(start, end string) []string {
+	return transactionDateRange(start, end, true, false)
+}
+
 // TradingDateRange 输出交易日范围
 //
-//	默认是线程安全
+//	默认是线程安全, 日期区间为左闭右开
 func TradingDateRange(start, end string, threadSafe ...bool) []string {
 	isSafe := true
 	if len(threadSafe) > 0 {
 		isSafe = threadSafe[0]
 	}
 
-	return DateRange(start, end, isSafe, true)
+	return transactionDateRange(start, end, isSafe, true)
 }
 
 // LastTradeDate 获得最后一个交易日
