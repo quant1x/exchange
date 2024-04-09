@@ -97,22 +97,21 @@ func TradeRange(start, end string, threadSafe ...bool) []string {
 	return slices.Clone(tradeDates[is : ie+1])
 }
 
-// TradingDateRange 输出交易日范围
+// DateRange 在start和end之间的所有交易日
 //
-//	默认是线程安全
-func TradingDateRange(start, end string, threadSafe ...bool) []string {
+//	start 开始日期
+//	end 结束日期
+//	threadSafe 是否线程安全
+//	skipToday 是否跳过当日
+func DateRange(start, end string, threadSafe, skipToday bool) []string {
 	start = FixTradeDate(start)
 	end = FixTradeDate(end)
 	if start > end {
 		return nil
 	}
 
-	isSafe := true
-	if len(threadSafe) > 0 {
-		isSafe = threadSafe[0]
-	}
 	var tradeDates []string
-	if isSafe {
+	if threadSafe {
 		tradeDates = readOnlyDates()
 	} else {
 		tradeDates = unsafeDates()
@@ -121,15 +120,29 @@ func TradingDateRange(start, end string, threadSafe ...bool) []string {
 	is := sort.SearchStrings(tradeDates, start)
 	ie := sort.SearchStrings(tradeDates, end)
 
-	today := IndexToday()
-	lastDay := tradeDates[ie]
-	if lastDay > today || lastDay > end {
-		ie = ie - 1
+	if skipToday {
+		today := IndexToday()
+		lastDay := tradeDates[ie]
+		if lastDay > today || lastDay > end {
+			ie = ie - 1
+		}
 	}
 	if is > ie+1 {
 		return nil
 	}
 	return slices.Clone(tradeDates[is : ie+1])
+}
+
+// TradingDateRange 输出交易日范围
+//
+//	默认是线程安全
+func TradingDateRange(start, end string, threadSafe ...bool) []string {
+	isSafe := true
+	if len(threadSafe) > 0 {
+		isSafe = threadSafe[0]
+	}
+
+	return DateRange(start, end, isSafe, true)
 }
 
 // LastTradeDate 获得最后一个交易日
