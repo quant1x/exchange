@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.8] - 2024-04-10
+### Changed
+- 更新依赖库版本.
+- 简化DateRange调用方法, 抽象出transactionDateRange函数.
+- 新增数据两个日期之间的所有交易日.
+
 ## [0.4.7] - 2024-03-30
 ### Changed
 - 更新依赖库版本.
@@ -173,7 +179,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.4.7...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.4.8...HEAD
+[0.4.8]: https://gitee.com/quant1x/exchange/compare/v0.4.7...v0.4.8
 [0.4.7]: https://gitee.com/quant1x/exchange/compare/v0.4.6...v0.4.7
 [0.4.6]: https://gitee.com/quant1x/exchange/compare/v0.4.5...v0.4.6
 [0.4.5]: https://gitee.com/quant1x/exchange/compare/v0.4.4...v0.4.5
