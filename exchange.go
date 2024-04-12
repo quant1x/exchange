@@ -365,3 +365,36 @@ func CorrectSecurityCode(securityCode string) string {
 	_, mFlag, mSymbol := DetectMarket(securityCode)
 	return mFlag + mSymbol
 }
+
+// TargetKind 标的类型
+type TargetKind int
+
+const (
+	STOCK = iota // 股票
+	INDEX        // 指数
+	BLOCK        // 板块
+	ETF          // ETF
+)
+
+// AssertCode 判断一个代码类型
+func AssertCode(securityCode string) TargetKind {
+	marketId, _, code := DetectMarket(securityCode)
+	// 板块, 板块指数的数据在上海
+	if marketId == MarketIdShangHai && api.StartsWith(code, []string{"880", "881"}) {
+		return BLOCK
+	}
+	// 上海代码, 000开头为指数
+	if marketId == MarketIdShangHai && api.StartsWith(code, []string{"000"}) {
+		return INDEX
+	}
+	// 深圳代码, 399开头为指数
+	if marketId == MarketIdShenZhen && api.StartsWith(code, []string{"399"}) {
+		return INDEX
+	}
+	// ETF, 上海
+	if marketId == MarketIdShangHai && api.StartsWith(code, []string{"510"}) {
+		return ETF
+	}
+
+	return STOCK
+}
