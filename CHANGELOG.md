@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.0] - 2024-04-12
+### Changed
+- 新增判断证券代码的类型, 除去北交所代码外的指数,板块,ETF以及个股.
+
 ## [0.4.8] - 2024-04-10
 ### Changed
 - 更新依赖库版本.
@@ -179,7 +183,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.4.8...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.5.0...HEAD
+[0.5.0]: https://gitee.com/quant1x/exchange/compare/v0.4.8...v0.5.0
 [0.4.8]: https://gitee.com/quant1x/exchange/compare/v0.4.7...v0.4.8
 [0.4.7]: https://gitee.com/quant1x/exchange/compare/v0.4.6...v0.4.7
 [0.4.6]: https://gitee.com/quant1x/exchange/compare/v0.4.5...v0.4.6
