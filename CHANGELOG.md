@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.1] - 2024-04-16
+### Changed
+- 新增计算评估收益率的函数.
+- 修订DateRange入参end为非交易日时会返回超过end的交易日的bug.
+- 更新依赖库num版本到0.2.7.
+- 指数列表增加科创50.
+- 指数列表增加沪深300.
+
 ## [0.5.0] - 2024-04-12
 ### Changed
 - 新增判断证券代码的类型, 除去北交所代码外的指数,板块,ETF以及个股.
@@ -183,7 +191,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.5.0...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.5.1...HEAD
+[0.5.1]: https://gitee.com/quant1x/exchange/compare/v0.5.0...v0.5.1
 [0.5.0]: https://gitee.com/quant1x/exchange/compare/v0.4.8...v0.5.0
 [0.4.8]: https://gitee.com/quant1x/exchange/compare/v0.4.7...v0.4.8
 [0.4.7]: https://gitee.com/quant1x/exchange/compare/v0.4.6...v0.4.7
