@@ -126,6 +126,13 @@ func transactionDateRange(start, end string, threadSafe, skipToday bool) []strin
 		if lastDay > today || lastDay > end {
 			ie = ie - 1
 		}
+	} else {
+		for {
+			if tradeDates[ie] <= end {
+				break
+			}
+			ie--
+		}
 	}
 	if is > ie+1 {
 		return nil
@@ -149,7 +156,6 @@ func TradingDateRange(start, end string, threadSafe ...bool) []string {
 	if len(threadSafe) > 0 {
 		isSafe = threadSafe[0]
 	}
-
 	return transactionDateRange(start, end, isSafe, true)
 }
 
