@@ -39,7 +39,7 @@ func EvaluateYields(prices, markets []float64, riskFreeRate float64) (beta, alph
 	lx := len(prices)
 	ly := len(markets)
 	// 数据集长度必须相同
-	if lx != ly || lx == 0 || ly == 0 {
+	if lx != ly || lx == 0 {
 		return
 	}
 	meanPrice := num.Mean(prices)
