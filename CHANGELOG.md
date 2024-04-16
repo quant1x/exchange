@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.2] - 2024-04-16
+### Changed
+- 更新num版本到0.2.9.
+- 删除数据集长度对比多余的表达式.
+
 ## [0.5.1] - 2024-04-16
 ### Changed
 - 新增计算评估收益率的函数.
@@ -191,7 +196,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.5.1...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.5.2...HEAD
+[0.5.2]: https://gitee.com/quant1x/exchange/compare/v0.5.1...v0.5.2
 [0.5.1]: https://gitee.com/quant1x/exchange/compare/v0.5.0...v0.5.1
 [0.5.0]: https://gitee.com/quant1x/exchange/compare/v0.4.8...v0.5.0
 [0.4.8]: https://gitee.com/quant1x/exchange/compare/v0.4.7...v0.4.8
