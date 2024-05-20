@@ -45,6 +45,10 @@ const (
 	END_P_AUCTION_SPE = "15:02:00" // A股下午集合竞价结束时间过一分钟
 )
 
+const (
+	TransactionStartTime = "09:30:00" // 交易开始时间
+)
+
 // 分时数据相关常量
 const (
 	CN_DEFAULT_TOTALFZNUM = 240 // A股默认全天交易240分钟
@@ -403,4 +407,9 @@ func TradeSessionHasEnd(date string) bool {
 	}
 	_, status := CanUpdateInRealtime(now)
 	return status == ExchangeClosing
+}
+
+// TradeSessionIsPreMarket 是否盘前交易
+func TradeSessionIsPreMarket(date string) bool {
+	return false
 }
