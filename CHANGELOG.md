@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.5] - 2024-05-20
+### Changed
+- 时间常量增加交易开始时间.
+- 调整私有变量名为驼峰命名规则.
+
 ## [0.5.4] - 2024-05-16
 ### Changed
 - 更新num版本到0.3.2.
@@ -204,7 +209,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Initial commit.
 
-[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.5.4...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange/compare/v0.5.5...HEAD
+[0.5.5]: https://gitee.com/quant1x/exchange/compare/v0.5.4...v0.5.5
 [0.5.4]: https://gitee.com/quant1x/exchange/compare/v0.5.3...v0.5.4
 [0.5.3]: https://gitee.com/quant1x/exchange/compare/v0.5.2...v0.5.3
 [0.5.2]: https://gitee.com/quant1x/exchange/compare/v0.5.1...v0.5.2
