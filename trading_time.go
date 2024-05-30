@@ -73,13 +73,13 @@ func (tr *DateTimeRange) Minutes() int {
 }
 
 var (
-	onceTimeRange coroutine.PeriodicOnce
-	cnTimeRange   []DateTimeRange // 交易时间范围
-	trAMBegin     time.Time       // 上午开盘时间
-	trAMEnd       time.Time
-	trPMBegin     time.Time
-	trPMEnd       time.Time
-	CN_TOTALFZNUM = 0 // A股全天交易的分钟数
+	onceTimeRange  coroutine.RollingOnce
+	cnTimeRange    []DateTimeRange // 交易时间范围
+	trAMBegin      time.Time       // 上午开盘时间
+	trAMEnd        time.Time
+	trPMBegin      time.Time
+	trPMEnd        time.Time
+	cnTotalMinutes = 0 // A股全天交易的分钟数
 )
 
 var (
@@ -94,7 +94,7 @@ func resetTimeRange() {
 		Begin: trAMBegin,
 		End:   trAMEnd,
 	}
-	cnTimeRange = append(cnTimeRange, tr_am)
+	tmpTimeRanges := []DateTimeRange{tr_am}
 
 	trPMBegin = time.Date(now.Year(), now.Month(), now.Day(), BEGIN_A_PM_HOUR, BEGIN_A_PM_MINUTE, 0, 0, time.Local)
 	trPMEnd = time.Date(now.Year(), now.Month(), now.Day(), END_A_PM_HOUR, END_A_PM_MINUTE, 0, 0, time.Local)
@@ -103,16 +103,23 @@ func resetTimeRange() {
 		End:   trPMEnd,
 	}
 	_minutes := 0
-	cnTimeRange = append(cnTimeRange, tr_pm)
-	for _, v := range cnTimeRange {
+	tmpTimeRanges = append(tmpTimeRanges, tr_pm)
+	for _, v := range tmpTimeRanges {
 		_minutes += int(v.End.Sub(v.Begin).Minutes())
 	}
-	CN_TOTALFZNUM = _minutes
+	cnTimeRange = tmpTimeRanges
+	cnTotalMinutes = _minutes
 }
 
 func getTimeRanges() []DateTimeRange {
 	onceTimeRange.Do(resetTimeRange)
 	return slices.Clone(cnTimeRange)
+}
+
+// getTotalFzNum 获取全天的分钟数
+func getTotalFzNum() int {
+	onceTimeRange.Do(resetTimeRange)
+	return cnTotalMinutes
 }
 
 func fixMinute(m time.Time) time.Time {
@@ -131,21 +138,12 @@ func Minutes(date ...string) int {
 		theDay = FixTradeDate(date[0])
 	}
 	if theDay < today {
-		return CN_TOTALFZNUM
+		return getTotalFzNum()
 	}
 	if theDay != lastDay {
-		return CN_TOTALFZNUM
+		return getTotalFzNum()
 	}
 	tm := time.Now()
-	//tm, _ = utils.ParseTime("2023-04-11 09:29:00")
-	//tm, _ = utils.ParseTime("2023-04-11 09:30:00")
-	//tm, _ = utils.ParseTime("2023-04-11 09:31:00")
-	//tm, _ = utils.ParseTime("2023-04-11 11:31:00")
-	//tm, _ = utils.ParseTime("2023-04-11 12:59:00")
-	//tm, _ = utils.ParseTime("2023-04-11 13:00:00")
-	//tm, _ = utils.ParseTime("2023-04-11 13:01:00")
-	//tm, _ = utils.ParseTime("2023-04-11 14:59:00")
-	//tm, _ = utils.ParseTime("2023-04-11 15:01:00")
 	tm = fixMinute(tm)
 	var last time.Time
 	for _, v := range timeRanges {
