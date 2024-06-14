@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.8] - 2024-06-20
+### Changed
+- 更新依赖库num版本到0.3.4
+
 ## [0.5.7] - 2024-06-14
 ### Changed
 - 更新依赖库版本
@@ -11,6 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - 修复计算分钟数的bug
 - 新增chglog配置文件
+- update changelog
 - update changelog
 
 ## [0.5.5] - 2024-05-20
@@ -264,7 +269,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.5.7...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.5.8...HEAD
+[0.5.8]: https://gitee.com/quant1x/exchange.git/compare/v0.5.7...v0.5.8
 [0.5.7]: https://gitee.com/quant1x/exchange.git/compare/v0.5.6...v0.5.7
 [0.5.6]: https://gitee.com/quant1x/exchange.git/compare/v0.5.5...v0.5.6
 [0.5.5]: https://gitee.com/quant1x/exchange.git/compare/v0.5.4...v0.5.5
