@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.9] - 2024-07-05
+### Changed
+- 更新依赖库num版本到0.3.5
+
 ## [0.5.8] - 2024-06-20
 ### Changed
 - 更新依赖库num版本到0.3.4
@@ -10,6 +14,7 @@ All notable changes to this project will be documented in this file.
 ## [0.5.7] - 2024-06-14
 ### Changed
 - 更新依赖库版本
+- update changelog
 
 ## [0.5.6] - 2024-05-30
 ### Changed
@@ -269,7 +274,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.5.8...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.5.9...HEAD
+[0.5.9]: https://gitee.com/quant1x/exchange.git/compare/v0.5.8...v0.5.9
 [0.5.8]: https://gitee.com/quant1x/exchange.git/compare/v0.5.7...v0.5.8
 [0.5.7]: https://gitee.com/quant1x/exchange.git/compare/v0.5.6...v0.5.7
 [0.5.6]: https://gitee.com/quant1x/exchange.git/compare/v0.5.5...v0.5.6
