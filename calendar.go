@@ -87,7 +87,7 @@ func loadCalendarFromFile() {
 // 加载交易日历, 数据源内置
 func loadCalendarFromCache() {
 	var list []calendar
-	reader := strings.NewReader(calendar2024Data)
+	reader := strings.NewReader(calendarFullData)
 	err := gocsv.Unmarshal(reader, &list)
 	if err != nil && len(list) == 0 {
 		return

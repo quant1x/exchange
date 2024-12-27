@@ -12,13 +12,13 @@ import (
 
 func downloadCalendar(fileModTime time.Time) ([]calendar, time.Time) {
 	var list []calendar
-	reader := strings.NewReader(calendar2024Data)
+	reader := strings.NewReader(calendarFullData)
 	err := gocsv.Unmarshal(reader, &list)
 	if err != nil && len(list) == 0 {
-		return list, calendar2024ModTime
+		return list, calendarLastModTime
 	}
 	_ = fileModTime
-	return list, calendar2024ModTime
+	return list, calendarLastModTime
 }
 
 func v2downloadCalendar(fileModTime time.Time) ([]calendar, time.Time) {
@@ -51,13 +51,16 @@ func v2downloadCalendar(fileModTime time.Time) ([]calendar, time.Time) {
 }
 
 var (
-	calendar2024ModTime = api.NanosecondToTime(timestamp20221221175952)
+	calendarLastModTime = api.NanosecondToTime(calendarSourceDate)
+	calendarSourceDate  = timestamp20241224032505
 )
 
 const (
 	// 2022-12-21 17:59:52 +0800
 	timestamp20221221175952 = int64(1671616792000000000)
-	calendar2024Data        = `date,source
+	//2024-12-24 03:25:05 +0000 GMT
+	timestamp20241224032505 = int64(1735010705000000000)
+	calendarFullData        = `date,source
 1990-12-19,sina
 1990-12-20,sina
 1990-12-21,sina

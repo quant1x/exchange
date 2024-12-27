@@ -22,7 +22,7 @@ func TestDowndata(t *testing.T) {
 		panic("获取交易日历失败: " + urlSinaRealstockCompanyKlcTdSh)
 	}
 	fmt.Println(data)
-	fmt.Println(lastModified, err)
+	fmt.Println(lastModified, lastModified.UnixNano(), err)
 	ret, err := js.SinaJsDecode(api.Bytes2String(data))
 	if err != nil {
 		panic("js解码失败: " + urlSinaRealstockCompanyKlcTdSh)
