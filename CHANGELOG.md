@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.12] - 2024-12-27
+### Changed
+- 修订日历数据变量名
+
 ## [0.5.11] - 2024-12-27
 ### Changed
 - 新增2025年交易日历
@@ -10,6 +14,7 @@ All notable changes to this project will be documented in this file.
 ## [0.5.10] - 2024-08-06
 ### Changed
 - 更新依赖库num版本到0.3.6
+- update changelog
 - update changelog
 
 ## [0.5.9] - 2024-07-05
@@ -284,7 +289,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.5.11...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.5.12...HEAD
+[0.5.12]: https://gitee.com/quant1x/exchange.git/compare/v0.5.11...v0.5.12
 [0.5.11]: https://gitee.com/quant1x/exchange.git/compare/v0.5.10...v0.5.11
 [0.5.10]: https://gitee.com/quant1x/exchange.git/compare/v0.5.9...v0.5.10
 [0.5.9]: https://gitee.com/quant1x/exchange.git/compare/v0.5.8...v0.5.9
