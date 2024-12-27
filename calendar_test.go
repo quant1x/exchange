@@ -38,6 +38,9 @@ func TestDowndata(t *testing.T) {
 		dates = append(dates, e)
 	}
 	fmt.Println(dates)
+	for _, v := range dates {
+		fmt.Printf("%s,%s\n", v.Date, v.Source)
+	}
 }
 
 func Test_updateHoliday(t *testing.T) {
