@@ -111,10 +111,10 @@ func TestGetShangHaiTradeDates(t *testing.T) {
 }
 
 func TestOnce(t *testing.T) {
-	count := 1000
+	count := 10
 	for i := 0; i < count; i++ {
 		lastDate := LastTradeDate()
-		fmt.Println(lastDate)
+		fmt.Printf("%d/%d\t%s\n", i, count, lastDate)
 		time.Sleep(time.Second * 1)
 	}
 }

@@ -3,8 +3,8 @@ package exchange
 import (
 	"fmt"
 	"gitee.com/quant1x/gox/api"
-	"gitee.com/quant1x/pkg/testify/assert"
 	"gitee.com/quant1x/pkg/yaml"
+	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
 )

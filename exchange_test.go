@@ -2,7 +2,7 @@ package exchange
 
 import (
 	"fmt"
-	"gitee.com/quant1x/pkg/testify/assert"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 

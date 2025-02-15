@@ -11,5 +11,4 @@ func Test_stock_hist(t *testing.T) {
 		_ = fmt.Errorf("error :%v", err.Error())
 	}
 	fmt.Println(ks)
-
 }
