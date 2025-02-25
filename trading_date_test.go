@@ -2,6 +2,7 @@ package exchange
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -35,6 +36,34 @@ func TestGetCurrentDate(t *testing.T) {
 	date := "20230721"
 	v := GetCurrentDate(date)
 	fmt.Println(v)
+	type args struct {
+		date []string
+	}
+	tests := []struct {
+		name            string
+		args            args
+		wantCurrentDate string
+	}{
+		{
+			name: "20230721 => 2023-07-21",
+			args: args{
+				date: []string{"20230721"},
+			},
+			wantCurrentDate: "2023-07-21",
+		},
+		{
+			name: "2025-02-21 => 2025-02-21",
+			args: args{
+				date: []string{"2025-02-21"},
+			},
+			wantCurrentDate: "2025-02-21",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			assert.Equalf(t, tt.wantCurrentDate, GetCurrentDate(tt.args.date...), "GetCurrentDate(%v)", tt.args.date)
+		})
+	}
 }
 
 func TestDateTimeRange(t *testing.T) {
