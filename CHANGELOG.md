@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.6.2] - 2025-03-07
+### Changed
+- 拆分出exchange的证券代码和涨跌停板限制的功能函数
+
 ## [0.6.1] - 2025-02-25
 ### Changed
 - 相隔超过2天的获取最后一个交易日存在不能用当日时间戳来判定是否过9点, 应该直接返回
+- update changelog
 
 ## [0.6.0] - 2025-02-15
 ### Changed
@@ -299,7 +304,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.6.1...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.6.2...HEAD
+[0.6.2]: https://gitee.com/quant1x/exchange.git/compare/v0.6.1...v0.6.2
 [0.6.1]: https://gitee.com/quant1x/exchange.git/compare/v0.6.0...v0.6.1
 [0.6.0]: https://gitee.com/quant1x/exchange.git/compare/v0.5.12...v0.6.0
 [0.5.12]: https://gitee.com/quant1x/exchange.git/compare/v0.5.11...v0.5.12
