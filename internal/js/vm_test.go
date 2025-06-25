@@ -1,6 +1,7 @@
 package js
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -21,5 +22,6 @@ func TestDecodeTd(t *testing.T) {
 	if err != nil {
 		t.Fatalf("cannot parse javascript: %s", err)
 	}
+	fmt.Println(len(ret.([]interface{})))
 	t.Logf("result: %v", ret)
 }
