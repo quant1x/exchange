@@ -1,8 +1,9 @@
 package exchange
 
 import (
-	"gitee.com/quant1x/gox/api"
 	"strings"
+
+	"gitee.com/quant1x/gox/api"
 )
 
 type MarketType = uint8
@@ -224,7 +225,9 @@ func AssertBlockBySecurityCode(securityCode *string) (isBlock bool) {
 
 // AssertETFByMarketAndCode 通过市场id和代码判断是否ETF
 func AssertETFByMarketAndCode(marketId MarketType, symbol string) (isETF bool) {
-	if marketId == MarketIdShangHai && api.StartsWith(symbol, []string{"510"}) {
+	if marketId == MarketIdShangHai && api.StartsWith(symbol, []string{"51"}) {
+		return true
+	} else if marketId == MarketIdShenZhen && api.StartsWith(symbol, []string{"159"}) {
 		return true
 	}
 	return false
@@ -232,9 +235,9 @@ func AssertETFByMarketAndCode(marketId MarketType, symbol string) (isETF bool) {
 
 // AssertStockByMarketAndCode 通过市场id和代码判断是否个股
 func AssertStockByMarketAndCode(marketId MarketType, symbol string) (isStock bool) {
-	if marketId == MarketIdShangHai && api.StartsWith(symbol, []string{"60", "68", "510"}) {
+	if marketId == MarketIdShangHai && api.StartsWith(symbol, []string{"60", "68", "51"}) {
 		return true
-	} else if marketId == MarketIdShenZhen && api.StartsWith(symbol, []string{"00", "30"}) {
+	} else if marketId == MarketIdShenZhen && api.StartsWith(symbol, []string{"00", "30", "159"}) {
 		return true
 	}
 	return false
@@ -281,7 +284,11 @@ func AssertCode(securityCode string) TargetKind {
 		return INDEX
 	}
 	// ETF, 上海
-	if marketId == MarketIdShangHai && api.StartsWith(code, []string{"510"}) {
+	if marketId == MarketIdShangHai && api.StartsWith(code, []string{"51"}) {
+		return ETF
+	}
+	// ETF, 深圳
+	if marketId == MarketIdShenZhen && api.StartsWith(code, []string{"159"}) {
 		return ETF
 	}
 
