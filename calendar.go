@@ -2,15 +2,16 @@
 package exchange
 
 import (
+	"os"
+	"slices"
+	"strings"
+	"time"
+
 	"gitee.com/quant1x/exchange/cache"
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/coroutine"
 	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/pkg/gocsv"
-	"os"
-	"slices"
-	"strings"
-	"time"
 )
 
 const (

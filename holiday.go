@@ -2,12 +2,13 @@ package exchange
 
 import (
 	"fmt"
+	"regexp"
+	"strings"
+
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/http"
 	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/gox/text/encoding"
-	"regexp"
-	"strings"
 )
 
 const (

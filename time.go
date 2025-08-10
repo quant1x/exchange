@@ -2,13 +2,14 @@ package exchange
 
 import (
 	"fmt"
+	"regexp"
+	"strings"
+	"time"
+
 	"gitee.com/quant1x/gox/exception"
 	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/gox/timestamp"
 	"gitee.com/quant1x/pkg/yaml"
-	"regexp"
-	"strings"
-	"time"
 )
 
 // 值范围正则表达式

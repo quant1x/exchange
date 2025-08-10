@@ -3,9 +3,10 @@ package exchange
 import (
 	"errors"
 	"fmt"
-	"gitee.com/quant1x/gox/coroutine"
 	"slices"
 	"time"
+
+	"gitee.com/quant1x/gox/coroutine"
 )
 
 const (

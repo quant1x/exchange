@@ -2,11 +2,12 @@ package exchange
 
 import (
 	"errors"
+	"slices"
+	"strings"
+
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/timestamp"
 	"gitee.com/quant1x/pkg/yaml"
-	"slices"
-	"strings"
 )
 
 // MarketHours 交易时段

@@ -1,13 +1,14 @@
 package exchange
 
 import (
+	"strings"
+	"time"
+
 	"gitee.com/quant1x/exchange/internal/js"
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/http"
 	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/pkg/gocsv"
-	"strings"
-	"time"
 )
 
 func downloadCalendar(fileModTime time.Time) ([]calendar, time.Time) {

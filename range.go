@@ -1,11 +1,12 @@
 package exchange
 
 import (
+	"regexp"
+	"strings"
+
 	"gitee.com/quant1x/gox/exception"
 	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/num"
-	"regexp"
-	"strings"
 )
 
 // 正则表达式

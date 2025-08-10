@@ -1,12 +1,13 @@
 package exchange
 
 import (
-	"gitee.com/quant1x/gox/api"
-	"gitee.com/quant1x/gox/logger"
 	"slices"
 	"sort"
 	"strings"
 	"time"
+
+	"gitee.com/quant1x/gox/api"
+	"gitee.com/quant1x/gox/logger"
 )
 
 const (

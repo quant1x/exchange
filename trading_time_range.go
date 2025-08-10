@@ -3,11 +3,12 @@ package exchange
 import (
 	"errors"
 	"fmt"
+	"strings"
+	"time"
+
 	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/gox/timestamp"
 	"gitee.com/quant1x/pkg/yaml"
-	"strings"
-	"time"
 )
 
 // 值范围正则表达式

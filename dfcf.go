@@ -2,13 +2,14 @@ package exchange
 
 import (
 	"fmt"
+	urlpkg "net/url"
+	"strings"
+	"time"
+
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/http"
 	"gitee.com/quant1x/gox/logger"
 	"gitee.com/quant1x/pkg/fastjson"
-	urlpkg "net/url"
-	"strings"
-	"time"
 )
 
 const (

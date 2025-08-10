@@ -2,11 +2,12 @@ package exchange
 
 import (
 	"fmt"
+	"testing"
+	"time"
+
 	"gitee.com/quant1x/exchange/internal/js"
 	"gitee.com/quant1x/gox/api"
 	"gitee.com/quant1x/gox/http"
-	"testing"
-	"time"
 )
 
 func Test_resetCalendar(t *testing.T) {
