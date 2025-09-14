@@ -3,7 +3,7 @@ package exchange
 import (
 	"strings"
 
-	"github.com/quant1x/x/api"
+	"gitee.com/quant1x/gox/api"
 )
 
 type MarketType = uint8

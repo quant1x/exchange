@@ -4,11 +4,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/quant1x/exchange/internal/js"
-	"github.com/quant1x/pkg/gocsv"
-	"github.com/quant1x/x/api"
-	"github.com/quant1x/x/http"
-	"github.com/quant1x/x/logger"
+	"gitee.com/quant1x/exchange/internal/js"
+	"gitee.com/quant1x/gox/api"
+	"gitee.com/quant1x/gox/http"
+	"gitee.com/quant1x/gox/logger"
+	"gitee.com/quant1x/pkg/gocsv"
 )
 
 func downloadCalendar(fileModTime time.Time) ([]calendar, time.Time) {

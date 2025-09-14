@@ -6,7 +6,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/quant1x/x/coroutine"
+	"gitee.com/quant1x/gox/coroutine"
 )
 
 const (

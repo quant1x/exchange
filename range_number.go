@@ -5,10 +5,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/quant1x/num"
-	"github.com/quant1x/pkg/yaml"
-	"github.com/quant1x/x/api"
-	"github.com/quant1x/x/exception"
+	"gitee.com/quant1x/gox/api"
+	"gitee.com/quant1x/gox/exception"
+	"gitee.com/quant1x/num"
+	"gitee.com/quant1x/pkg/yaml"
 )
 
 // 数值范围正则表达式

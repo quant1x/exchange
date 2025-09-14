@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/quant1x/x/api"
-	"github.com/quant1x/x/logger"
+	"gitee.com/quant1x/gox/api"
+	"gitee.com/quant1x/gox/logger"
 )
 
 const (

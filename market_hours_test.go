@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/quant1x/pkg/yaml"
-	"github.com/quant1x/x/api"
+	"gitee.com/quant1x/gox/api"
+	"gitee.com/quant1x/pkg/yaml"
 	"github.com/stretchr/testify/assert"
 )
 

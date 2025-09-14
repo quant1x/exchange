@@ -5,10 +5,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/quant1x/x/api"
-	"github.com/quant1x/x/http"
-	"github.com/quant1x/x/logger"
-	"github.com/quant1x/x/text/encoding"
+	"gitee.com/quant1x/gox/api"
+	"gitee.com/quant1x/gox/http"
+	"gitee.com/quant1x/gox/logger"
+	"gitee.com/quant1x/gox/text/encoding"
 )
 
 const (

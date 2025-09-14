@@ -3,7 +3,7 @@ package exchange
 import (
 	"math"
 
-	"github.com/quant1x/num"
+	"gitee.com/quant1x/num"
 )
 
 // 协方差

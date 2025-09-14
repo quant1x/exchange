@@ -5,9 +5,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/quant1x/pkg/yaml"
-	"github.com/quant1x/x/api"
-	"github.com/quant1x/x/timestamp"
+	"gitee.com/quant1x/gox/api"
+	"gitee.com/quant1x/gox/timestamp"
+	"gitee.com/quant1x/pkg/yaml"
 )
 
 // MarketHours 交易时段
