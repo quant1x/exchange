@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.7.1] - 2025-09-14
+### Changed
+- 适配x基础工具包
+
 ## [0.7.0] - 2025-08-14
 ### Changed
 - go版本最低要求1.25
+- update changelog
 
 ## [0.6.8] - 2025-08-11
 ### Changed
@@ -339,7 +344,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.7.0...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.7.1...HEAD
+[0.7.1]: https://gitee.com/quant1x/exchange.git/compare/v0.7.0...v0.7.1
 [0.7.0]: https://gitee.com/quant1x/exchange.git/compare/v0.6.8...v0.7.0
 [0.6.8]: https://gitee.com/quant1x/exchange.git/compare/v0.6.7...v0.6.8
 [0.6.7]: https://gitee.com/quant1x/exchange.git/compare/v0.6.6...v0.6.7
