@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gocarina/gocsv"
 	"github.com/quant1x/exchange/cache"
+	"github.com/quant1x/pkg/gocsv"
 	"github.com/quant1x/x/api"
 	"github.com/quant1x/x/coroutine"
 	"github.com/quant1x/x/logger"
