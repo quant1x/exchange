@@ -4,9 +4,9 @@ go 1.25
 
 require (
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1
-	github.com/quant1x/num v0.7.2
+	github.com/quant1x/num v0.7.3
 	github.com/quant1x/pkg v0.8.1
-	github.com/quant1x/x v0.1.20
+	github.com/quant1x/x v0.1.23
 	github.com/stretchr/testify v1.11.1
 )
 
