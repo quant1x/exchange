@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.8.0] - 2025-09-14
+### Changed
+- 适配x基础工具包
+
 ## [0.7.1] - 2025-09-14
 ### Changed
 - 适配x基础工具包
+- update changelog
 
 ## [0.7.0] - 2025-08-14
 ### Changed
@@ -344,7 +349,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.7.1...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.8.0...HEAD
+[0.8.0]: https://gitee.com/quant1x/exchange.git/compare/v0.7.1...v0.8.0
 [0.7.1]: https://gitee.com/quant1x/exchange.git/compare/v0.7.0...v0.7.1
 [0.7.0]: https://gitee.com/quant1x/exchange.git/compare/v0.6.8...v0.7.0
 [0.6.8]: https://gitee.com/quant1x/exchange.git/compare/v0.6.7...v0.6.8
