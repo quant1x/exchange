@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"gitee.com/quant1x/exchange/internal/js"
-	"gitee.com/quant1x/gox/api"
-	"gitee.com/quant1x/gox/http"
+	"github.com/quant1x/exchange/internal/js"
+	"github.com/quant1x/x/api"
+	"github.com/quant1x/x/http"
 )
 
 func Test_resetCalendar(t *testing.T) {

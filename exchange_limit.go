@@ -1,8 +1,8 @@
 package exchange
 
 import (
-	"gitee.com/quant1x/gox/api"
-	"gitee.com/quant1x/num"
+	"github.com/quant1x/num"
+	"github.com/quant1x/x/api"
 )
 
 // MarketLimit 涨跌停板限制

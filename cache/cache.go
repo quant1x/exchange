@@ -3,8 +3,8 @@ package cache
 import (
 	"sync"
 
-	"gitee.com/quant1x/gox/logger"
-	"gitee.com/quant1x/gox/util/homedir"
+	"github.com/quant1x/x/logger"
+	"github.com/quant1x/x/util/homedir"
 )
 
 const (

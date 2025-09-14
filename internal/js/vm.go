@@ -3,10 +3,10 @@ package js
 import (
 	"strings"
 
-	"gitee.com/quant1x/gox/logger"
+	"github.com/quant1x/x/logger"
 
 	//js "github.com/dop251/goja"
-	js "gitee.com/quant1x/pkg/goja"
+	js "github.com/quant1x/pkg/goja"
 )
 
 const (

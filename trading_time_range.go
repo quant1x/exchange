@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"gitee.com/quant1x/gox/logger"
-	"gitee.com/quant1x/gox/timestamp"
-	"gitee.com/quant1x/pkg/yaml"
+	"github.com/quant1x/pkg/yaml"
+	"github.com/quant1x/x/logger"
+	"github.com/quant1x/x/timestamp"
 )
 
 // 值范围正则表达式
