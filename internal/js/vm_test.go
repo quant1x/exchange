@@ -1,8 +1,10 @@
 package js
 
 import (
+	"encoding/json"
 	"fmt"
 	"testing"
+	"time"
 )
 
 func TestSinaJsDecode(t *testing.T) {
@@ -23,6 +25,44 @@ func TestDecodeTd(t *testing.T) {
 	if err != nil {
 		t.Fatalf("cannot parse javascript: %s", err)
 	}
-	fmt.Println(len(ret.([]interface{})))
-	t.Logf("result: %v", ret)
+	// fallback normalizers
+	switch v := ret.(type) {
+	case []time.Time:
+		ss := make([]string, len(v))
+		for i, t := range v {
+			ss[i] = t.Format("2006-01-02")
+		}
+		if b, err := json.MarshalIndent(ss, "", "  "); err == nil {
+			fmt.Println(string(b))
+			return
+		}
+	case []map[string]interface{}:
+		// convert any time.Time values to ISO strings
+		for _, m := range v {
+			for k, val := range m {
+				if tt, ok := val.(time.Time); ok {
+					m[k] = tt.Format("2006-01-02 15:04:05")
+				}
+			}
+		}
+		if b, err := json.MarshalIndent(v, "", "  "); err == nil {
+			fmt.Println(string(b))
+			return
+		}
+	case [][]int64:
+		if b, err := json.MarshalIndent(v, "", "  "); err == nil {
+			fmt.Println(string(b))
+			return
+		}
+	case []interface{}:
+		for _, v := range ret.([]any) {
+			ts := v.(time.Time)
+			date := ts.Format("2006-01-02")
+			fmt.Println(date)
+		}
+		return
+	}
+
+	// final fallback: print error + Go value
+	fmt.Printf("json.Marshal failed: %v\n%#v\n", err, ret)
 }
