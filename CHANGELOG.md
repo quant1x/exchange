@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.8.7] - 2025-09-19
+### Changed
+- 新增html页面测试js解码
+
 ## [0.8.6] - 2025-09-14
 ### Changed
 - 更新依赖库版本
+- update changelog
 
 ## [0.8.5] - 2025-09-14
 ### Changed
@@ -379,7 +384,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.8.6...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.8.7...HEAD
+[0.8.7]: https://gitee.com/quant1x/exchange.git/compare/v0.8.6...v0.8.7
 [0.8.6]: https://gitee.com/quant1x/exchange.git/compare/v0.8.5...v0.8.6
 [0.8.5]: https://gitee.com/quant1x/exchange.git/compare/v0.8.4...v0.8.5
 [0.8.4]: https://gitee.com/quant1x/exchange.git/compare/v0.8.3...v0.8.4
