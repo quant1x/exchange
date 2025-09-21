@@ -1,12 +1,12 @@
 package exchange
 
-type TradeDate string
+type TradingDay string
 
-func NewTradeDate(date string) TradeDate {
-	tradeDate := FixTradeDate(date)
-	return TradeDate(tradeDate)
+func NewTradeDate(date string) TradingDay {
+	date = FixTradeDate(date)
+	return TradingDay(date)
 }
 
-func (t TradeDate) String() string {
+func (t TradingDay) String() string {
 	return string(t)
 }
