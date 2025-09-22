@@ -3,7 +3,7 @@ module gitee.com/quant1x/exchange
 go 1.25
 
 require (
-	gitee.com/quant1x/gox v1.24.5
+	gitee.com/quant1x/gox v1.25.0
 	gitee.com/quant1x/num v0.7.8
 	gitee.com/quant1x/pkg v0.8.2
 	github.com/stretchr/testify v1.11.1
