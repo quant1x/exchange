@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.8.10] - 2025-09-22
+### Changed
+- 更新依赖库gox版本到1.25.0
+
 ## [0.8.9] - 2025-09-22
 ### Changed
 - 修订构造交易日的函数
+- update changelog
 
 ## [0.8.8] - 2025-09-21
 ### Changed
@@ -394,7 +399,8 @@ All notable changes to this project will be documented in this file.
 - 初始化exchange模块
 
 
-[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.8.9...HEAD
+[Unreleased]: https://gitee.com/quant1x/exchange.git/compare/v0.8.10...HEAD
+[0.8.10]: https://gitee.com/quant1x/exchange.git/compare/v0.8.9...v0.8.10
 [0.8.9]: https://gitee.com/quant1x/exchange.git/compare/v0.8.8...v0.8.9
 [0.8.8]: https://gitee.com/quant1x/exchange.git/compare/v0.8.7...v0.8.8
 [0.8.7]: https://gitee.com/quant1x/exchange.git/compare/v0.8.6...v0.8.7
