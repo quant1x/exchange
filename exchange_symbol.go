@@ -38,6 +38,72 @@ var (
 	marketAShareFlags = []string{"sh", "sz", "SH", "SZ", "bj", "BJ"}
 )
 
+var (
+	// 上海证券交易所代码段
+	//	主板: 60xxxx
+	//	科创板: 688xxx
+	//	B股: 900xxx
+	//	优先股: 360xxx
+	//	科创板存托凭证: 689xxx
+	//	申购/配股/投票: 7xxxxx
+	//	上海总规则: http://www.sse.com.cn/lawandrules/guide/stock/jyglywznylc/zn/a/20230209/4ae280c58535e0424b3a9c743c47e6b9.docx
+	//	0: 国债/指数, 000 上证指数系列和中证指数系列, 00068x科创板指数
+	//	1: 债券
+	//	2: 回购
+	//	3: 期货
+	//	4: 备用
+	//	5: 基金/权证
+	//	6: A股
+	//	7: 非交易业务(发行, 权益分配)
+	//	8: 备用, 通达信编制板块指数占用880,881
+	//	9: B股
+	shanghaiPrefixes = []string{"50", "51", "60", "68", "689", "90", "110", "113", "132", "204", "000", "360", "880", "881", "7", "5", "6", "9"}
+
+	// 上海证券交易所特殊代码段
+	shanghaiSpecialPrefixes = []string{"5", "6", "9", "7"}
+
+	// 深圳交易所代码段
+	//	主板: 000,001
+	//	中小板: 002,003,004
+	//	创业板: 30xxxx
+	//	优先股: 140xxx
+	//	深圳总规则: https://zhuanlan.zhihu.com/p/63064991
+	//	0: 股票
+	//	1: 国债/基金
+	//	2: B股
+	//	30: 创业板
+	//	36: 投票, 369999用于深交所认证业务的密码激活/密码挂失
+	//	37: 增发/可转债申购
+	//	38: 配股/可转债优先权
+	//	395: 成家量统计指数
+	//	399: 指数
+	shenzhenPrefixes = []string{"00", "001", "002", "003", "004", "12", "13", "15", "16", "18", "20", "30", "36", "37", "38", "39", "115", "1318", "140", "395", "399", "159"}
+
+	// 北京交易所证券代码段
+	//	北交所指数: 899
+	//	新三板: 40,43,83,87
+	//	88开头: 通常表示公开发行的股票, 与新三板市场中的其他类型股票进行区分
+	//	三板A: 400,430,830-839,870-873
+	//	三板B: 420
+	//	优先股: 820
+	//	新代码段: 920
+	beijingPrefixes = []string{"40", "43", "83", "87", "88", "420", "820", "899", "920"}
+)
+
+var (
+	// 上海交易所指数前缀
+	shanghaiIndexPrefixes = []string{"000"}
+	// 深圳交易所指数前缀
+	shenzhenIndexPrefixes = []string{"399"}
+	// 北京交易所指数前缀
+	beijingIndexPrefixes = []string{"899"}
+)
+
+var (
+	// 通达信板块指数, 在上海交易所
+	sectorPrefixes = []string{"880", "881"}
+)
+
 func GetSecurityCode(market MarketType, symbol string) (securityCode string) {
 	switch market {
 	case MarketIdUSA:
@@ -67,15 +133,13 @@ func GetMarket(symbol string) string {
 		length := len(symbol)
 		// 后缀一个点号+2位字母, 代码在最前面
 		market = strings.ToLower(symbol[length-2:])
-	} else if api.StartsWith(symbol, []string{"50", "51", "60", "68", "90", "110", "113", "132", "204"}) {
+	} else if api.StartsWith(symbol, shanghaiPrefixes) {
 		market = "sh"
-	} else if api.StartsWith(symbol, []string{"00", "12", "13", "18", "15", "16", "18", "20", "30", "39", "115", "1318"}) {
+	} else if api.StartsWith(symbol, shenzhenPrefixes) {
 		market = "sz"
-	} else if api.StartsWith(symbol, []string{"5", "6", "9", "7"}) {
+	} else if api.StartsWith(symbol, sectorPrefixes) {
 		market = "sh"
-	} else if api.StartsWith(symbol, []string{"88"}) {
-		market = "sh"
-	} else if api.StartsWith(symbol, []string{"4", "8"}) {
+	} else if api.StartsWith(symbol, beijingPrefixes) {
 		market = "bj"
 	}
 	return market
@@ -130,54 +194,16 @@ func DetectMarket(symbol string) (marketId MarketType, market string, code strin
 		// 600000.SH
 		market = strings.ToLower(code[length-2:])
 		code = code[:length-3]
-	} else if api.StartsWith(code, []string{"50", "51", "60", "68", "90", "110", "113", "132", "204"}) {
-		// 上海证券交易所
-		// 主板: 60xxxx
-		// 科创板: 688xxx
-		// B股: 900xxx
-		// 优先股: 360xxx
-		// 科创板存托凭证: 689xxx
-		// 申购/配股/投票: 7xxxxx
-		// 上海总规则: http://www.sse.com.cn/lawandrules/guide/stock/jyglywznylc/zn/a/20230209/4ae280c58535e0424b3a9c743c47e6b9.docx
-		// 0: 国债/指数, 000 上证指数系列和中证指数系列, 00068x科创板指数
-		// 1: 债券
-		// 2: 回购
-		// 3: 期货
-		// 4: 备用
-		// 5: 基金/权证
-		// 6: A股
-		// 7: 非交易业务(发行, 权益分配)
-		// 8: 备用, 通达信编制板块指数占用880,881
-		// 9: B股
+	} else if api.StartsWith(code, shanghaiPrefixes) {
 		market = MarketShangHai
-	} else if api.StartsWith(code, []string{"00", "12", "13", "18", "15", "16", "18", "20", "30", "39", "115", "1318"}) {
-		// 深圳交易所
-		// 主板: 000,001
-		// 中小板: 002,003,004
-		// 创业板: 30xxxx
-		// 优先股: 140xxx
-		// 深圳总规则: https://zhuanlan.zhihu.com/p/63064991
-		// 0: 股票
-		// 1: 国债/基金
-		// 2: B股
-		// 30: 创业板
-		// 36: 投票, 369999用于深交所认证业务的密码激活/密码挂失
-		// 37: 增发/可转债申购
-		// 38: 配股/可转债优先权
-		// 395: 成家量统计指数
-		// 399: 指数
+	} else if api.StartsWith(code, shenzhenPrefixes) {
 		market = MarketShenZhen
-	} else if api.StartsWith(code, []string{"5", "6", "9", "7"}) {
+	} else if api.StartsWith(code, shanghaiSpecialPrefixes) {
 		market = MarketShangHai
-	} else if api.StartsWith(code, []string{"88"}) {
+	} else if api.StartsWith(code, sectorPrefixes) {
 		// 通达信板块指数, 在上海交易所
 		market = MarketShangHai
-	} else if api.StartsWith(code, []string{"4", "8"}) {
-		// 北京上市公司: 43, 83,87
-		// 新三板: 40,43,83,87
-		// 三板A: 400,430,830-839,870-873
-		// 三板B: 420
-		// 优先股: 820
+	} else if api.StartsWith(code, beijingPrefixes) {
 		market = MarketBeiJing
 	}
 	marketId = MarketIdShangHai
@@ -195,9 +221,13 @@ func DetectMarket(symbol string) (marketId MarketType, market string, code strin
 
 // AssertIndexByMarketAndCode 通过市场id和短码判断是否指数
 func AssertIndexByMarketAndCode(marketId MarketType, symbol string) (isIndex bool) {
-	if marketId == MarketIdShangHai && api.StartsWith(symbol, []string{"000", "880", "881"}) {
+	if marketId == MarketIdShangHai && api.StartsWith(symbol, shanghaiIndexPrefixes) {
 		return true
-	} else if marketId == MarketIdShenZhen && api.StartsWith(symbol, []string{"399"}) {
+	} else if marketId == MarketIdShangHai && api.StartsWith(symbol, sectorPrefixes) {
+		return true
+	} else if marketId == MarketIdShenZhen && api.StartsWith(symbol, shenzhenIndexPrefixes) {
+		return true
+	} else if marketId == MarketIdBeiJing && api.StartsWith(symbol, beijingIndexPrefixes) {
 		return true
 	}
 	return false
@@ -216,7 +246,7 @@ func AssertBlockBySecurityCode(securityCode *string) (isBlock bool) {
 		// 板块指数的数据在上海
 		return false
 	}
-	if !api.StartsWith(code, []string{"880", "881"}) {
+	if !api.StartsWith(code, sectorPrefixes) {
 		return false
 	}
 	*securityCode = flag + code
@@ -238,6 +268,8 @@ func AssertStockByMarketAndCode(marketId MarketType, symbol string) (isStock boo
 	if marketId == MarketIdShangHai && api.StartsWith(symbol, []string{"60", "68", "51"}) {
 		return true
 	} else if marketId == MarketIdShenZhen && api.StartsWith(symbol, []string{"00", "30", "159"}) {
+		return true
+	} else if marketId == MarketIdBeiJing && api.StartsWith(symbol, []string{"40", "43", "83", "87", "92"}) {
 		return true
 	}
 	return false
@@ -272,15 +304,18 @@ const (
 func AssertCode(securityCode string) TargetKind {
 	marketId, _, code := DetectMarket(securityCode)
 	// 板块, 板块指数的数据在上海
-	if marketId == MarketIdShangHai && api.StartsWith(code, []string{"880", "881"}) {
+	if marketId == MarketIdShangHai && api.StartsWith(code, sectorPrefixes) {
 		return BLOCK
 	}
 	// 上海代码, 000开头为指数
-	if marketId == MarketIdShangHai && api.StartsWith(code, []string{"000"}) {
+	if marketId == MarketIdShangHai && api.StartsWith(code, shanghaiIndexPrefixes) {
 		return INDEX
 	}
 	// 深圳代码, 399开头为指数
-	if marketId == MarketIdShenZhen && api.StartsWith(code, []string{"399"}) {
+	if marketId == MarketIdShenZhen && api.StartsWith(code, shenzhenIndexPrefixes) {
+		return INDEX
+	}
+	if marketId == MarketIdBeiJing && api.StartsWith(code, beijingIndexPrefixes) {
 		return INDEX
 	}
 	// ETF, 上海
